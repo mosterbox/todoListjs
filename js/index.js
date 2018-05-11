@@ -27,8 +27,20 @@ function createTodoItem(title) {
   listItem.appendChild(editInput);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
-  console.log(listItem);
+
+  bindEvents(listItem);)
+
   return listItem;
+}
+
+function bindEvents(todoItem) {
+  const checkbox = todoItem.querySelector('.checkbox');
+  const editButton = todoItem.querySelector('button.editButton');
+  const deleteButton = todoItem.querySelector('button.deleteButton');
+
+  checkbox.addEventListener('change', toggleTodoItem);
+  editButton.addEventListener('click', editTodoItem);
+  deleteButton.addEventListener('click', deleteTodoItem);
 }
 
 function  addTodoItem(event) {
@@ -36,7 +48,21 @@ function  addTodoItem(event) {
 
   if (addInput.value === '') return alert('You must write a massage text');
 
-  const listItem = createTodoItem(addInput.value);
+  const todoItem = createTodoItem(addInput.value);
+  todoList.appendChild(todoItem);
+  addInput.value = '';
+}
+
+function toggleTodoItem(event) {
+  event.target
+}
+
+function editTodoItem() {
+
+}
+
+function deleteTodoItem() {
+  
 }
 
 const todoForm = document.getElementById('todo-form');
